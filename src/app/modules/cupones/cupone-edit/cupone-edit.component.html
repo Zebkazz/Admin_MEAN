@@ -1,0 +1,337 @@
+<span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading$ | async"></span>
+<div class="card card-flush h-lg-100" id="kt_contacts_main" data-select2-id="select2-data-kt_contacts_main">
+    <!--begin::Card header-->
+    <div class="card-header pt-7" id="kt_chat_contacts_header">
+        <!--begin::Card title-->
+        <div class="card-title">
+            <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
+            <!-- <span class="svg-icon svg-icon-1 me-2"> -->
+                <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2023-07-21-074234/core/html/src/media/icons/duotune/technology/teh009.svg-->
+                <!-- <span class="svg-icon svg-icon-1 me-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 18L10 14L9.60001 13.2C9.30001 12.6 9.69999 12 10.4 12H13.7C14.3 12 14.7 12.7 14.5 13.2L14 14L16 18H8ZM6 6H4V8H6V6ZM7 11C7 11.6 7.4 12 8 12C8.6 12 9 11.6 9 11V10H7V11ZM10 6V8H20V6H10Z" fill="currentColor"/>
+                    <path opacity="0.3" d="M21 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22ZM20 4H4V18H20V4ZM10 9V6H6V9C6 9.6 6.4 10 7 10H9C9.6 10 10 9.6 10 9Z" fill="currentColor"/>
+                    </svg>
+                </span> -->
+
+                <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2023-07-21-074234/core/html/src/media/icons/duotune/maps/map010.svg-->
+                <span class="svg-icon svg-icon-1 me-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.613 16.163L7.837 13.387C7.65313 13.203 7.54983 12.9536 7.54983 12.6935C7.54983 12.4334 7.65313 12.184 7.837 12L14.775 5.06201C14.9589 4.87814 15.2084 4.7749 15.4685 4.7749C15.7286 4.7749 15.978 4.87814 16.162 5.06201L18.938 7.83801C19.1219 8.02197 19.2252 8.2714 19.2252 8.53149C19.2252 8.79159 19.1219 9.04102 18.938 9.22498L12 16.163C11.816 16.3468 11.5666 16.4502 11.3065 16.4502C11.0464 16.4502 10.797 16.3468 10.613 16.163ZM4.71301 17.203L2.48498 20.322C2.3675 20.4863 2.31218 20.687 2.32879 20.8883C2.3454 21.0896 2.43288 21.2784 2.57571 21.4213C2.71853 21.5641 2.90743 21.6516 3.10873 21.6682C3.31003 21.6848 3.51067 21.6294 3.67498 21.512L6.794 19.2841L4.71301 17.203Z" fill="currentColor"/>
+                    <path opacity="0.3" d="M7.83701 12L2.28699 6.44995C2.10306 6.26582 1.99976 6.01624 1.99976 5.75598C1.99976 5.49572 2.10306 5.24614 2.28699 5.06201L5.06201 2.28699C5.24614 2.10306 5.49575 1.99976 5.75601 1.99976C6.01627 1.99976 6.26588 2.10306 6.45001 2.28699L12 7.83704L7.83701 12ZM18.937 21.713L21.712 18.938C21.8959 18.7539 21.9992 18.5043 21.9992 18.244C21.9992 17.9838 21.8959 17.7342 21.712 17.55L16.162 12L12 16.163L17.55 21.713C17.7341 21.8969 17.9837 22.0002 18.244 22.0002C18.5042 22.0002 18.7539 21.8969 18.938 21.713H18.937ZM9.146 21.634C9.25064 21.7386 9.37833 21.8172 9.51883 21.8636C9.65933 21.9101 9.80874 21.923 9.95511 21.9014C10.1015 21.8797 10.2407 21.824 10.3618 21.7389C10.4828 21.6537 10.5822 21.5415 10.652 21.411C11.0778 20.2848 11.1695 19.0596 10.9161 17.8826C10.6628 16.7055 10.0752 15.6265 9.22385 14.7751C8.37248 13.9238 7.29352 13.3362 6.11646 13.0829C4.93939 12.8296 3.71424 12.9213 2.58801 13.347C2.45756 13.4169 2.34528 13.5162 2.26013 13.6372C2.17499 13.7582 2.11933 13.8976 2.09766 14.0439C2.07598 14.1903 2.08889 14.3397 2.13531 14.4802C2.18174 14.6207 2.26038 14.7484 2.36499 14.853L9.146 21.634ZM19.181 6.83398C19.3013 6.79376 19.4094 6.72347 19.495 6.62976C19.5806 6.53605 19.6408 6.42209 19.6699 6.29858C19.6991 6.17508 19.6962 6.04615 19.6615 5.92407C19.6269 5.802 19.5616 5.69074 19.472 5.60095L18.401 4.53003C18.3112 4.44036 18.2 4.37509 18.0779 4.34045C17.9559 4.30582 17.827 4.30288 17.7035 4.33203C17.58 4.36118 17.4659 4.42139 17.3722 4.50696C17.2785 4.59252 17.2082 4.7007 17.168 4.82104L16.855 5.75903L18.243 7.14697L19.181 6.83398Z" fill="currentColor"/>
+                    </svg>
+                </span>
+    <!--end::Svg Icon-->
+
+                <!--end::Svg Icon-->
+            <!-- </span> -->
+            <!--end::Svg Icon-->
+            <h2 *ngIf="CUPON_SELECTED">EDIT CUPON:  #{{ CUPON_SELECTED._id }}</h2>
+        </div>
+        <!--end::Card title-->
+    </div>
+    <!--end::Card header-->
+    <!--begin::Card body-->
+    <div class="card-body pt-5" data-select2-id="select2-data-126-ypx0">
+        <!--begin::Form-->
+        <form id="kt_ecommerce_settings_general_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="#" data-select2-id="select2-data-kt_ecommerce_settings_general_form">
+            
+            <!--Titulo y Subtitulo-->
+            <div class="row mb-7 fv-plugins-icon-container">
+                <div class="col-3">
+                    <!--begin::Label-->
+                    <label class="fs-6 fw-bold form-label mt-3">
+                        <span class="required">Codigo</span>
+                        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" code="" data-bs-original-code="Enter the contact's name." aria-label="Enter the contact's name."></i>
+                    </label>
+                    <!--end::Label-->
+                    <!--begin::Input-->
+                    <input type="text" class="form-control form-control-solid" [(ngModel)]="code" name="code">
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="fs-6 fw-bold form-label mt-3">
+                                <span class="required">Tipo de descuento: </span>
+                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" code="" data-bs-original-code="Enter the contact's name." aria-label="Enter the contact's name."></i>
+                            </label>
+                        </div>
+                        <div class="col-6">
+                            <label class="btn btn-outline btn-outline-dashed btn-outline-default d-flex text-start p-6" [ngClass]="{'active': type_discount == 1}" data-kt-button="true">
+                                <span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
+                                    <input class="form-check-input" type="radio" name="type_discount" [checked]="type_discount == 1" (click)="selectedTypeDiscount(1)">
+                                </span>
+                                <span class="ms-5">
+                                    <span class="fs-6 fw-bolder mb-1 d-block">Porcentaje</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="col-6">
+                            <label class="btn btn-outline btn-outline-dashed btn-outline-default d-flex text-start p-6" [ngClass]="{'active': type_discount == 2}" data-kt-button="true">
+                                <span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
+                                    <input class="form-check-input" type="radio" name="type_discount" [checked]="type_discount == 2" (click)="selectedTypeDiscount(2)">
+                                </span>
+                                <span class="ms-5">
+                                    <span class="fs-6 fw-bolder mb-1 d-block">Monto Fijo</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                     <!--begin::Label-->
+                     <label class="fs-6 fw-bold form-label mt-3">
+                        <span class="required">Descuento</span>
+                        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" code="" data-bs-original-code="Enter the contact's name." aria-label="Enter the contact's name."></i>
+                    </label>
+                    <!--end::Label-->
+                    <!--begin::Input-->
+                    <input type="number" class="form-control form-control-solid" [(ngModel)]="discount" name="discount">
+                </div>
+            </div>
+
+            <div class="row mb-7 fv-plugins-icon-container">
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="fs-6 fw-bold form-label mt-3">
+                                <span class="required">Tipo de uso: </span>
+                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" code="" data-bs-original-code="Enter the contact's name." aria-label="Enter the contact's name."></i>
+                            </label>
+                        </div>
+                        <div class="col-6">
+                            <label class="btn btn-outline btn-outline-dashed btn-outline-default d-flex text-start p-6" [ngClass]="{'active': type_count == 1}" data-kt-button="true">
+                                <span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
+                                    <input class="form-check-input" type="radio" name="type_count" [checked]="type_count == 1" (click)="selectedTypeCount(1)">
+                                </span>
+                                <span class="ms-5">
+                                    <span class="fs-6 fw-bolder mb-1 d-block">Ilimitado</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="col-6">
+                            <label class="btn btn-outline btn-outline-dashed btn-outline-default d-flex text-start p-6" [ngClass]="{'active': type_count == 2}" data-kt-button="true">
+                                <span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
+                                    <input class="form-check-input" type="radio" name="type_count" [checked]="type_count == 2" (click)="selectedTypeCount(2)">
+                                </span>
+                                <span class="ms-5">
+                                    <span class="fs-6 fw-bolder mb-1 d-block">Limitado</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4" *ngIf="type_count == 2">
+                    <!--begin::Label-->
+                    <label class="fs-6 fw-bold form-label mt-3">
+                       <span class="required">N° de usos</span>
+                       <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" code="" data-bs-original-code="Enter the contact's name." aria-label="Enter the contact's name."></i>
+                   </label>
+                   <!--end::Label-->
+                   <!--begin::Input-->
+                   <input type="number" class="form-control form-control-solid" [(ngModel)]="num_use" name="num_use">
+               </div>
+            </div>
+
+            <div class="row mb-7 fv-plugins-icon-container">
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="fs-6 fw-bold form-label mt-3">
+                                <span class="required">Tipo de cupon: </span>
+                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" code="" data-bs-original-code="Enter the contact's name." aria-label="Enter the contact's name."></i>
+                            </label>
+                        </div>
+                        <div class="col-6">
+                            <label class="btn btn-outline btn-outline-dashed btn-outline-default d-flex text-start p-6" [ngClass]="{'active': type_cupon == 1}" data-kt-button="true">
+                                <span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
+                                    <input class="form-check-input" type="radio" name="type_cupon" [checked]="type_cupon == 1" (click)="selectedTypeCupon(1)">
+                                </span>
+                                <span class="ms-5">
+                                    <span class="fs-6 fw-bolder mb-1 d-block">Curso</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="col-6">
+                            <label class="btn btn-outline btn-outline-dashed btn-outline-default d-flex text-start p-6" [ngClass]="{'active': type_cupon == 2}" data-kt-button="true">
+                                <span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
+                                    <input class="form-check-input" type="radio" name="type_cupon" [checked]="type_cupon == 2" (click)="selectedTypeCupon(2)">
+                                </span>
+                                <span class="ms-5">
+                                    <span class="fs-6 fw-bolder mb-1 d-block">Categoria</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3" *ngIf="type_cupon == 1">
+                    <label class="fs-6 fw-bold form-label mt-3">
+                        <span class="required">Cursos: </span>
+                        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" code="" data-bs-original-code="Enter the contact's name." aria-label="Enter the contact's name."></i>
+                    </label>
+
+                    <select
+                        class="form-control form-select-solid fw-bolder"
+                        name="courses"
+                        placeholder="Selec. Courses"
+                        [(ngModel)]="course_id"
+                    >
+                    <option value="">Selec.</option>
+
+                    <ng-container *ngFor="let COURSE of COURSES">
+                        <option [value]="COURSE._id">{{ COURSE.title }}</option>
+                    </ng-container>
+                    
+
+                    </select>
+
+                    <button class="btn btn-info btn-sm my-2" (click)="addCourse()">+</button>
+                </div>
+                <div class="col-3" *ngIf="type_cupon == 2">
+                    <label class="fs-6 fw-bold form-label mt-3">
+                        <span class="required">Categorias: </span>
+                        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" code="" data-bs-original-code="Enter the contact's name." aria-label="Enter the contact's name."></i>
+                    </label>
+                        <select
+                        class="form-control form-select-solid fw-bolder"
+                        name="categorie"
+                        placeholder="Selec. Categoria"
+                        [(ngModel)]="categorie_id"
+                        >
+                        <option value="">Selec.</option>
+                        <ng-container *ngFor="let CATEGORIE of CATEGORIES">
+                            <option [value]="CATEGORIE._id">{{ CATEGORIE.title }}</option>
+                        </ng-container>
+                        </select>
+
+                    <button class="btn btn-info btn-sm my-2" (click)="addCategorie()">+</button>
+                </div>
+
+                <div class="col-5" *ngIf="type_cupon == 1">
+
+                    <div class="table-responsive">
+                        <!--begin::Table-->
+                        <table class="table align-middle gs-0 gy-4">
+                            <!--begin::Table head-->
+                            <thead>
+                                <tr class="fw-bolder text-muted bg-light">
+                                    <th class="">Course</th>
+                                    <th class="">Price</th>
+                                    <th class=""></th>
+                                </tr>
+                            </thead>
+                            <!--end::Table head-->
+                            <!--begin::Table body-->
+                            <tbody>
+                                <ng-container *ngFor="let COURSES_SELEC of COURSES_SELECTED">
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="symbol symbol-50px me-5">
+                                                    <img [src]="COURSES_SELEC.imagen" class="" alt="">
+                                                </div>
+                                                <div class="d-flex justify-content-start flex-column">
+                                                    <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{ COURSES_SELEC.title }}</a>
+                                                    <span class="text-muted fw-bold text-muted d-block fs-7">{{ COURSES_SELEC.categorie.title }}</span>
+                                                </div>
+                                            </div>
+                                        </td>
+    
+                                        <td>
+                                            <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ COURSES_SELEC.price_usd }} USD</a>
+                                            <!-- <span class="text-muted fw-bold text-muted d-block fs-7">Paid</span> -->
+                                        </td>
+                                        
+                                        <td class="text-end">
+                                            <a href="#" onclick="return false;" (click)="deleteCourse(COURSES_SELEC)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+                                                <span class="svg-icon svg-icon-3">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor"></path>
+                                                        <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor"></path>
+                                                        <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor"></path>
+                                                    </svg>
+                                                </span>
+                                                <!--end::Svg Icon-->
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                                
+                            </tbody>
+                            <!--end::Table body-->
+                        </table>
+                        <!--end::Table-->
+                    </div>
+                    
+                </div>
+                <div class="col-5" *ngIf="type_cupon == 2">
+
+                    <div class="table-responsive">
+                        <!--begin::Table-->
+                        <table class="table align-middle gs-0 gy-4">
+                            <!--begin::Table head-->
+                            <thead>
+                                <tr class="fw-bolder text-muted bg-light">
+                                    <th class="">Categoria</th>
+                                    <th class="">Price</th>
+                                    <th class=""></th>
+                                </tr>
+                            </thead>
+                            <!--end::Table head-->
+                            <!--begin::Table body-->
+                            <tbody>
+                                <ng-container *ngFor="let CATEGORIES_SELEC of CATEGORIES_SELECTED">
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="symbol symbol-50px me-5">
+                                                    <img [src]="CATEGORIES_SELEC.imagen" class="" alt="">
+                                                </div>
+                                                <div class="d-flex justify-content-start flex-column">
+                                                    <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{ CATEGORIES_SELEC.title }}</a>
+                                                </div>
+                                            </div>
+                                        </td>
+    
+                                        <td>
+                                            <!-- <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ COURSES_SELEC.price_usd }} USD</a> -->
+                                            <!-- <span class="text-muted fw-bold text-muted d-block fs-7">Paid</span> -->
+                                        </td>
+                                        
+                                        <td class="text-end">
+                                            <a href="#" onclick="return false;" (click)="deleteCategorie(CATEGORIES_SELEC)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+                                                <span class="svg-icon svg-icon-3">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor"></path>
+                                                        <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor"></path>
+                                                        <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor"></path>
+                                                    </svg>
+                                                </span>
+                                                <!--end::Svg Icon-->
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                                
+                            </tbody>
+                            <!--end::Table body-->
+                        </table>
+                        <!--end::Table-->
+                    </div>
+                    
+                </div>
+            </div>
+            <!--begin::Separator-->
+            <div class="separator mb-6"></div>
+            <!--end::Separator-->
+            <div class="d-flex justify-content-end">
+                <button type="button" (click)="save()" class="btn btn-primary">
+                    <span class="indicator-label">Save</span>
+                    <span class="indicator-progress">Please wait...
+                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                </button>
+            </div>
+        <div></div></form>
+    </div>
+</div>
